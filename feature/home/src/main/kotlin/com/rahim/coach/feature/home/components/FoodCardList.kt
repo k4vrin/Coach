@@ -41,11 +41,9 @@ import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
 import com.rahim.coach.library.designsystem.theme.AeroBlue
-import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
 import com.rahim.coach.library.designsystem.theme.OuterSpace
 import com.rahim.coach.library.designsystem.theme.font_bold
 import com.rahim.coach.library.designsystem.theme.font_medium
-import com.rahim.coach.library.designsystem.theme.font_standard
 
 data class FoodCardItem(
     val imageRes: Int,
@@ -87,7 +85,7 @@ fun FoodCard(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(space.smallMedium),
-                cornerColor = CaribbeanGreen,
+                cornerColor = MaterialTheme.colorScheme.primary,
                 cornerStrokeWidth = space.hairline
             )
 
@@ -199,7 +197,7 @@ fun FoodCard(
                 Icon(
                     painter = painterResource(id = com.rahim.coach.library.designsystem.R.drawable.round_add_24),
                     contentDescription = "Add to plan",
-                    tint = CaribbeanGreen,
+                    tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(size.small)
                 )
             }

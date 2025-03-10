@@ -57,13 +57,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
 import com.rahim.coach.library.designsystem.theme.AeroBlue
-import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
 import com.rahim.coach.library.designsystem.theme.OuterSpace
 import com.rahim.coach.library.designsystem.theme.SilverChalice
 import com.rahim.coach.library.designsystem.theme.font_bold
@@ -364,7 +362,7 @@ fun CarouselCard(
                     Icon(
                         painter = painterResource(id = com.rahim.coach.library.designsystem.R.drawable.round_add_24),
                         contentDescription = "Add Icon",
-                        tint = CaribbeanGreen,
+                        tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(size.extraSmall)
                     )
                 }

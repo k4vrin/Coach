@@ -29,6 +29,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
@@ -62,7 +63,6 @@ import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
 import com.rahim.coach.library.designsystem.base.StripedTitle
-import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
 import com.rahim.coach.library.designsystem.theme.CharlestonGreen
 import com.rahim.coach.library.designsystem.theme.CoachTheme
 import com.rahim.coach.library.designsystem.theme.DarkSilver
@@ -124,7 +124,7 @@ private fun FoodDetailScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(ovalHeight.dp),
-            backgroundColor = CaribbeanGreen
+            backgroundColor = MaterialTheme.colorScheme.primary
         ) {
 
             Column(
@@ -482,7 +482,7 @@ fun FoodDetailTabs(
                     Modifier
                         .tabIndicatorOffset(tabPositions[selectedTabIndex])
                         .height(3.dp),
-                    color = CaribbeanGreen
+                    color = MaterialTheme.colorScheme.primary
                 )
             },
             divider = {}

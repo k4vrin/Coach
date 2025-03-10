@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -38,11 +39,10 @@ import com.rahim.coach.feature.home.components.HighlightsSection
 import com.rahim.coach.feature.home.components.HomeConstants
 import com.rahim.coach.feature.home.components.InteractiveArcCarousel
 import com.rahim.coach.feature.home.components.PromoPager
-import com.rahim.coach.library.designsystem.base.StripedTitle
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
-import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
+import com.rahim.coach.library.designsystem.base.StripedTitle
 import com.rahim.coach.library.designsystem.theme.CoachTheme
 import com.rahim.coach.library.designsystem.theme.font_medium
 import kotlin.math.max
@@ -90,7 +90,7 @@ private fun HomeScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(ovalHeight.dp),
-            backgroundColor = CaribbeanGreen,
+            backgroundColor = MaterialTheme.colorScheme.primary,
             ovalHeight = with(density) { (ovalHeight * 0.73f).dp.toPx() }
         ) {
 

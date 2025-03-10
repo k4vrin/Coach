@@ -39,7 +39,6 @@ import com.rahim.coach.library.designsystem.R
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
-import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
 import com.rahim.coach.library.designsystem.theme.CoachTheme
 import kotlin.math.max
 
@@ -145,7 +144,9 @@ fun DrawerContent(modifier: Modifier = Modifier) {
                 Image(
                     painter = painterResource(R.drawable.path1),
                     contentDescription = "app icon",
-                    modifier = Modifier.size(83.dp).padding(top = space.extraExtraLarge)
+                    modifier = Modifier
+                        .size(83.dp)
+                        .padding(top = space.extraExtraLarge)
                 )
                 Text(
                     text = stringResource(R.string.your_smart_phone),
@@ -202,7 +203,7 @@ fun DrawerContent(modifier: Modifier = Modifier) {
                         .size(size.small),
                     painter = painterResource(drawerItem.iconRes),
                     contentDescription = null,
-                    tint = CaribbeanGreen
+                    tint = MaterialTheme.colorScheme.primary
                 )
             }
         }
