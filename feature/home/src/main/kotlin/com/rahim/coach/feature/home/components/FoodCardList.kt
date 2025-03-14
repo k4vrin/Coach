@@ -69,7 +69,7 @@ fun FoodCard(
             .fillMaxWidth()
             .height(120.dp),
         shape = RoundedCornerShape(size.extraSmall),
-        elevation = CardDefaults.cardElevation(defaultElevation = HomeConstants.DEF_CARD_ELEVATION),
+        elevation = CardDefaults.cardElevation(defaultElevation = space.default),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)
     ) {
         Box(
@@ -80,9 +80,10 @@ fun FoodCard(
             CornerAccent(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(space.smallMedium),
+                    // It has to be 14
+                    .padding(14.dp),
                 cornerColor = MaterialTheme.colorScheme.primary,
-                cornerStrokeWidth = space.hairline
+                cornerStrokeWidth = 2.dp
             )
 
             Row(

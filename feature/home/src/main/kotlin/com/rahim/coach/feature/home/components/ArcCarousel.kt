@@ -266,7 +266,7 @@ fun CarouselCard(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.background
         ),
-        elevation = CardDefaults.elevatedCardElevation(defaultElevation = HomeConstants.DEF_CARD_ELEVATION)
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = space.default)
     ) {
         Column {
             // Image Section
@@ -274,7 +274,7 @@ fun CarouselCard(
                 painter = painterResource(com.rahim.coach.library.designsystem.R.drawable.food),
                 contentDescription = "Card Image",
                 modifier = Modifier
-                    .padding(space.hairline)
+                    .padding(space.default)
                     .clip(RoundedCornerShape(size.extraSmall))
                     .fillMaxWidth()
                     .height(150.dp),

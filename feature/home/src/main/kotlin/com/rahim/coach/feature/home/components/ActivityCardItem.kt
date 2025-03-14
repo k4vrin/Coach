@@ -59,7 +59,7 @@ fun ActivityCard(
     Card(
         modifier = modifier,
         shape = RoundedCornerShape(size.extraSmall),
-        elevation = CardDefaults.cardElevation(defaultElevation = HomeConstants.DEF_CARD_ELEVATION),
+        elevation = CardDefaults.cardElevation(defaultElevation = space.default),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)
     ) {
         Box(

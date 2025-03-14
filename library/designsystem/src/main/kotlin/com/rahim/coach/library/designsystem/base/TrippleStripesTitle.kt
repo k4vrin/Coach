@@ -71,12 +71,9 @@ fun TripleStripes(
     isLeftToRight: Boolean,
 ) {
 
-    val size = LocalSize.current
-    val space = LocalSpacing.current
-    val fontSize = LocalFontSize.current
 
     Column(
-        verticalArrangement = Arrangement.spacedBy(space.hairline),
+        verticalArrangement = Arrangement.spacedBy(2.dp),
         horizontalAlignment = if (isLeftToRight) Alignment.Start else Alignment.End
     ) {
         // Top stripe (widest)
