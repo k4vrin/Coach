@@ -17,21 +17,18 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.rahim.coach.library.designsystem.R
-import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
-import com.rahim.coach.library.designsystem.theme.MediumAquamarine
-import com.rahim.coach.library.designsystem.theme.OuterSpace
 import com.rahim.coach.library.designsystem.theme.font_bold
 import com.rahim.coach.library.designsystem.theme.font_standard
 
@@ -58,7 +55,7 @@ fun CarouselCard(
             .clickable { onCardClick() },
         shape = RoundedCornerShape(size.extraSmall),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White
+            containerColor = MaterialTheme.colorScheme.background
         ),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = size.default)
     ) {
@@ -89,7 +86,7 @@ fun CarouselCard(
                         fontFamily = font_bold,
                         fontWeight = FontWeight.Bold,
                         fontSize = fontSize.default,
-                        color = OuterSpace
+                        color = MaterialTheme.colorScheme.onSecondary
                     )
                 )
                 Spacer(modifier = Modifier.height(space.default))
@@ -99,7 +96,7 @@ fun CarouselCard(
                         fontFamily = font_standard,
                         fontWeight = FontWeight.Normal,
                         fontSize = fontSize.extraExtraSmall,
-                        color = OuterSpace
+                        color = MaterialTheme.colorScheme.onSecondary
                     )
                 )
             }
@@ -121,7 +118,7 @@ fun CarouselCard(
                     Icon(
                         painter = painterResource(id = R.drawable.ic_clock),
                         contentDescription = "Duration Icon",
-                        tint = Color.Gray,
+                        tint = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.size(size.small)
                     )
 
@@ -133,7 +130,7 @@ fun CarouselCard(
                             fontFamily = font_standard,
                             fontWeight = FontWeight.Normal,
                             fontSize = fontSize.extraExtraSmall,
-                            color = OuterSpace
+                            color = MaterialTheme.colorScheme.onSecondary
                         )
                     )
                 }
@@ -143,7 +140,7 @@ fun CarouselCard(
                     modifier = Modifier
                         .size(size.large)
                         .background(
-                            color = MediumAquamarine,
+                            color = MaterialTheme.colorScheme.onPrimary,
                             shape = RoundedCornerShape(size.extraSmall)
                         )
                         .padding(space.default)
@@ -153,7 +150,7 @@ fun CarouselCard(
                     Icon(
                         painter = painterResource(id = R.drawable.round_add_24),
                         contentDescription = "Add Icon",
-                        tint = CaribbeanGreen,
+                        tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(size.extraSmall)
                     )
                 }

@@ -46,7 +46,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -61,9 +60,6 @@ import androidx.compose.ui.util.lerp
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
-import com.rahim.coach.library.designsystem.theme.AeroBlue
-import com.rahim.coach.library.designsystem.theme.OuterSpace
-import com.rahim.coach.library.designsystem.theme.SilverChalice
 import com.rahim.coach.library.designsystem.theme.font_bold
 import com.rahim.coach.library.designsystem.theme.font_medium
 import kotlinx.coroutines.launch
@@ -103,6 +99,7 @@ fun InteractiveArcCarousel(
         modifier = modifier
     ) {
         val arcSize = maxWidth
+        val arcColor = MaterialTheme.colorScheme.background
 
         Canvas(
             modifier = Modifier
@@ -110,24 +107,24 @@ fun InteractiveArcCarousel(
         ) {
             drawCircle(
                 brush = Brush.verticalGradient(
-                    0f to Color.White.copy(alpha = 0.6f),
-                    0.2f to Color.White.copy(alpha = 0.1f),
-                    0.4f to Color.White.copy(alpha = 0f),
-                    1f to Color.White.copy(alpha = 0f)
+                    0f to arcColor.copy(alpha = 0.6f),
+                    0.2f to arcColor.copy(alpha = 0.1f),
+                    0.4f to arcColor.copy(alpha = 0f),
+                    1f to arcColor.copy(alpha = 0f)
                 ),
                 center = center,
                 style = Stroke(width = size.default.toPx(), cap = StrokeCap.Round)
             )
 
             drawCircle(
-                color = Color.White,
+                color = arcColor,
                 radius = 15f,
                 center = Offset(center.x, 0f),
                 style = Stroke(width = 3f)
             )
 
             drawCircle(
-                color = Color.White,
+                color = arcColor,
                 radius = 11f,
                 center = Offset(center.x, 0f),
                 style = Fill
@@ -162,7 +159,7 @@ fun InteractiveArcCarousel(
             Text(
                 primaryItems[index],
                 fontSize = fontSize.small,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.background,
                 modifier = Modifier
                     .offset(x.dp, y.dp)
                     .graphicsLayer {
@@ -267,7 +264,7 @@ fun CarouselCard(
             .clickable { onCardClick() },
         shape = RoundedCornerShape(size.extraSmall),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White
+            containerColor = MaterialTheme.colorScheme.background
         ),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = HomeConstants.DEF_CARD_ELEVATION)
     ) {
@@ -298,7 +295,7 @@ fun CarouselCard(
                         fontFamily = font_bold,
                         fontWeight = FontWeight.Bold,
                         fontSize = fontSize.default,
-                        color = OuterSpace
+                        color = MaterialTheme.colorScheme.onSecondary
                     )
                 )
                 Spacer(modifier = Modifier.height(size.default))
@@ -308,7 +305,7 @@ fun CarouselCard(
                         fontFamily = font_medium,
                         fontWeight = FontWeight.Normal,
                         fontSize = fontSize.extraExtraSmall,
-                        color = SilverChalice
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                 )
             }
@@ -330,7 +327,7 @@ fun CarouselCard(
                     Icon(
                         painter = painterResource(id = com.rahim.coach.library.designsystem.R.drawable.ic_clock),
                         contentDescription = "Duration Icon",
-                        tint = Color.Gray,
+                        tint = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.size(size.small)
                     )
 
@@ -342,7 +339,7 @@ fun CarouselCard(
                             fontFamily = font_medium,
                             fontWeight = FontWeight.Normal,
                             fontSize = fontSize.extraExtraSmall,
-                            color = Color.Gray
+                            color = MaterialTheme.colorScheme.secondary
                         )
                     )
                 }
@@ -352,7 +349,7 @@ fun CarouselCard(
                     modifier = Modifier
                         .size(size.large)
                         .background(
-                            color = AeroBlue,
+                            color = MaterialTheme.colorScheme.tertiary,
                             shape = RoundedCornerShape(size.extraExtraSmall)
                         )
                         .padding(space.extraSmall)

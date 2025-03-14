@@ -25,7 +25,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -33,7 +32,6 @@ import androidx.compose.ui.unit.dp
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
-import com.rahim.coach.library.designsystem.theme.DarkCharcoal
 import com.rahim.coach.library.designsystem.theme.font_standard
 
 data class HighlightItem(
@@ -62,7 +60,7 @@ fun ActivityCard(
         modifier = modifier,
         shape = RoundedCornerShape(size.extraSmall),
         elevation = CardDefaults.cardElevation(defaultElevation = HomeConstants.DEF_CARD_ELEVATION),
-        colors = CardDefaults.cardColors(containerColor = Color.White)
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)
     ) {
         Box(
             modifier = Modifier
@@ -90,7 +88,6 @@ fun ActivityCard(
                     Icon(
                         painter = icon,
                         contentDescription = null,
-                        tint = Color.Unspecified,
                         modifier = Modifier.size(size.extraExtraExtraLarge)
                     )
 
@@ -101,7 +98,7 @@ fun ActivityCard(
                         style = TextStyle(
                             fontWeight = FontWeight.SemiBold,
                             fontSize = fontSize.small,
-                            color = DarkCharcoal
+                            color = MaterialTheme.colorScheme.onTertiaryContainer
                         )
                     )
 
@@ -121,7 +118,10 @@ fun ActivityCard(
                 }
 
                 Spacer(Modifier.height(size.extraExtraExtraSmall))
-                HorizontalDivider(thickness = 1.dp, color = Color.LightGray.copy(alpha = 0.7f))
+                HorizontalDivider(
+                    thickness = 1.dp,
+                    color = MaterialTheme.colorScheme.secondary.copy(alpha = 0.7f)
+                )
                 Spacer(Modifier.height(size.extraExtraExtraSmall))
 
                 // -- Bottom Row: subtitle on left, round button on right
@@ -132,7 +132,7 @@ fun ActivityCard(
                             fontFamily = font_standard,
                             fontWeight = FontWeight.Normal,
                             fontSize = fontSize.small,
-                            color = Color.Gray
+                            color = MaterialTheme.colorScheme.secondary
                         )
                     )
 
@@ -149,7 +149,7 @@ fun ActivityCard(
                         Icon(
                             painter = buttonIcon,
                             contentDescription = null,
-                            tint = Color.White,
+                            tint = MaterialTheme.colorScheme.background,
                             modifier = Modifier.size(size.small)
                         )
                     }

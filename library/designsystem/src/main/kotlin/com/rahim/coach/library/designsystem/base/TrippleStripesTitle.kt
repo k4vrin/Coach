@@ -18,7 +18,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.rahim.coach.library.designsystem.theme.OuterSpace
 import com.rahim.coach.library.designsystem.theme.font_bold
 
 @Composable
@@ -48,7 +47,7 @@ fun StripedTitle(
                 fontFamily = font_bold,
                 fontWeight = FontWeight.Bold,
                 fontSize = fontSize.small,
-                color = OuterSpace
+                color = MaterialTheme.colorScheme.onSecondary
             )
         )
 

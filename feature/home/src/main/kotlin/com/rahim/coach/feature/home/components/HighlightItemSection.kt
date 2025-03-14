@@ -39,6 +39,8 @@ fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier)
     val size = LocalSize.current
     val space = LocalSpacing.current
     val fontSize = LocalFontSize.current
+    val pathColor = MaterialTheme.colorScheme.secondary
+
     Box(
         modifier = modifier
             .padding(horizontal = space.gigantic)
@@ -47,7 +49,7 @@ fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier)
             .aspectRatio(3f / 2f),
         contentAlignment = Alignment.Center
     ) {
-        // 1) Draw your grid lines with triangular caps
+
         Canvas(
             modifier = Modifier
                 .fillMaxWidth()
@@ -56,12 +58,11 @@ fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier)
             drawGridLinesWithTriangleCaps(
                 gridRow = 2,
                 gridColumn = 3,
-                color = Color.LightGray,
+                color = pathColor,
                 strokeWidth = 5f
             )
         }
 
-        // 2) Overlay your icons/text using a LazyVerticalGrid with 3 columns
         LazyVerticalGrid(
             columns = GridCells.Fixed(3),
             horizontalArrangement = Arrangement.Center,
@@ -79,7 +80,7 @@ fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier)
                     Icon(
                         painter = painterResource(id = item.icon),
                         contentDescription = item.label,
-                        tint = if (item.isSelected) MaterialTheme.colorScheme.primary else Color.Gray,
+                        tint = if (item.isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.size(size.extraLarge)
                     )
                     Spacer(modifier = Modifier.height(size.default))
@@ -89,7 +90,7 @@ fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier)
                         style = TextStyle(
                             fontWeight = FontWeight.Normal,
                             fontSize = fontSize.default,
-                            color = if (item.isSelected) Color.Black else Color.Gray
+                            color = if (item.isSelected) MaterialTheme.colorScheme.onBackground else MaterialTheme.colorScheme.secondary
                         ),
                     )
                 }

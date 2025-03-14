@@ -16,6 +16,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,7 +29,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
@@ -74,7 +74,7 @@ fun PromoCard(
                     text = slide.smallTitle,
                     fontFamily = font_medium,
                     fontSize = fontSize.default,
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.background,
                     fontWeight = FontWeight.Normal,
                 )
                 Spacer(modifier = Modifier.height(space.default))
@@ -82,7 +82,7 @@ fun PromoCard(
                     text = slide.bigTitle,
                     fontFamily = font_bold,
                     fontSize = fontSize.large,
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.background,
                     fontWeight = FontWeight.Bold,
                 )
             }
@@ -147,7 +147,8 @@ fun PromoPager(
             repeat(slides.size) { index ->
                 val isSelected = pagerState.currentPage == index
                 val size = if (isSelected) space.medium else space.extraSmall
-                val color = if (isSelected) Color.White else Color.LightGray
+                val color =
+                    if (isSelected) MaterialTheme.colorScheme.background else MaterialTheme.colorScheme.secondary
 
                 Box(
                     modifier = Modifier

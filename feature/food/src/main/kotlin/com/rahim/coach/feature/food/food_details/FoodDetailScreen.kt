@@ -63,12 +63,7 @@ import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
 import com.rahim.coach.library.designsystem.base.StripedTitle
-import com.rahim.coach.library.designsystem.theme.CharlestonGreen
 import com.rahim.coach.library.designsystem.theme.CoachTheme
-import com.rahim.coach.library.designsystem.theme.DarkSilver
-import com.rahim.coach.library.designsystem.theme.OuterSpace
-import com.rahim.coach.library.designsystem.theme.Quartz
-import com.rahim.coach.library.designsystem.theme.SilverChalice
 import com.rahim.coach.library.designsystem.theme.font_bold
 import com.rahim.coach.library.designsystem.theme.font_medium
 import kotlinx.coroutines.delay
@@ -114,7 +109,7 @@ private fun FoodDetailScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.background)
             .verticalScroll(state = scrollState),
         contentAlignment = Alignment.TopCenter
     ) {
@@ -148,7 +143,7 @@ private fun FoodDetailScreen(
                                 .size(width = 72.dp, height = 87.dp),
                             imageVector = ImageVector.vectorResource(R.drawable.ic_app_icon),
                             contentDescription = "app logo",
-                            tint = Color.White
+                            tint = MaterialTheme.colorScheme.background
                         )
 
                         Spacer(
@@ -163,7 +158,7 @@ private fun FoodDetailScreen(
                                 fontWeight = FontWeight.SemiBold,
                                 fontSize = fontSize.small
                             ),
-                            color = Color.White
+                            color = MaterialTheme.colorScheme.background
                         )
 
                         Spacer(
@@ -192,7 +187,7 @@ private fun FoodDetailScreen(
                                 )
                                 .border(
                                     width = 1.dp,
-                                    color = Color.White,
+                                    color = MaterialTheme.colorScheme.background,
                                     shape = RoundedCornerShape(size.extraExtraSmall)
                                 ),
                             contentAlignment = Alignment.Center
@@ -202,7 +197,7 @@ private fun FoodDetailScreen(
                                     .size(size.extraExtraExtraLarge),
                                 imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowLeft,
                                 contentDescription = "back button",
-                                tint = Color.White
+                                tint = MaterialTheme.colorScheme.background
                             )
                         }
 
@@ -212,12 +207,12 @@ private fun FoodDetailScreen(
                             modifier = Modifier
                                 .size(size.extraExtraExtraLarge)
                                 .background(
-                                    color = Color.White,
+                                    color = MaterialTheme.colorScheme.background,
                                     shape = RoundedCornerShape(size.extraExtraSmall)
                                 )
                                 .border(
                                     width = 1.dp,
-                                    color = SilverChalice,
+                                    color = MaterialTheme.colorScheme.onSecondaryContainer,
                                     shape = RoundedCornerShape(size.extraExtraSmall)
                                 ),
                             contentAlignment = Alignment.Center
@@ -227,7 +222,7 @@ private fun FoodDetailScreen(
                                     .size(size.medium),
                                 imageVector = ImageVector.vectorResource(R.drawable.setting_2),
                                 contentDescription = "settings button",
-                                tint = CharlestonGreen
+                                tint = MaterialTheme.colorScheme.onPrimaryContainer
                             )
                         }
                     }
@@ -259,7 +254,7 @@ private fun FoodDetailScreen(
                         bottomEnd = 0.dp,
                         bottomStart = 0.dp
                     ),
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.background,
                 ) {
 
                     Column(
@@ -296,7 +291,7 @@ private fun FoodDetailScreen(
                                         fontFamily = font_medium,
                                         fontWeight = FontWeight.Normal,
                                         fontSize = fontSize.small,
-                                        color = Quartz
+                                        color = MaterialTheme.colorScheme.onTertiary
                                     )
                                 )
 
@@ -322,7 +317,7 @@ private fun FoodDetailScreen(
                                         fontFamily = font_medium,
                                         fontWeight = FontWeight.Normal,
                                         fontSize = fontSize.small,
-                                        color = Quartz
+                                        color = MaterialTheme.colorScheme.onTertiary
                                     )
                                 )
 
@@ -345,7 +340,7 @@ private fun FoodDetailScreen(
                                     fontFamily = font_bold,
                                     fontWeight = FontWeight.Bold,
                                     fontSize = fontSize.medium,
-                                    color = OuterSpace
+                                    color = MaterialTheme.colorScheme.onSecondary
                                 )
                             )
 
@@ -360,7 +355,7 @@ private fun FoodDetailScreen(
                                     fontFamily = font_medium,
                                     fontWeight = FontWeight.Normal,
                                     fontSize = fontSize.default,
-                                    color = DarkSilver
+                                    color = MaterialTheme.colorScheme.secondary
                                 )
                             )
                         }
@@ -476,7 +471,7 @@ fun FoodDetailTabs(
     ) {
         TabRow(
             selectedTabIndex = selectedTabIndex,
-            containerColor = Color.White,
+            containerColor = MaterialTheme.colorScheme.background,
             indicator = { tabPositions ->
                 TabRowDefaults.SecondaryIndicator(
                     Modifier
@@ -496,7 +491,7 @@ fun FoodDetailTabs(
                             text = title,
                             fontWeight = FontWeight.Bold,
                             fontSize = fontSize.default,
-                            color = if (selectedTabIndex == index) OuterSpace else Quartz
+                            color = if (selectedTabIndex == index) MaterialTheme.colorScheme.onSecondary else MaterialTheme.colorScheme.onTertiary
                         )
                     }
                 )
@@ -524,7 +519,7 @@ fun NutritionalValueContent() {
             fontFamily = font_medium,
             fontWeight = FontWeight.Normal,
             fontSize = fontSize.default,
-            color = DarkSilver
+            color = MaterialTheme.colorScheme.secondary
         ),
         modifier = Modifier.padding(space.medium)
     )
@@ -543,7 +538,7 @@ fun RecipeContent() {
                 fontFamily = font_medium,
                 fontWeight = FontWeight.Normal,
                 fontSize = fontSize.default,
-                color = DarkSilver
+                color = MaterialTheme.colorScheme.secondary
             )
         )
         Spacer(modifier = Modifier.height(space.extraSmall))
@@ -553,7 +548,7 @@ fun RecipeContent() {
                 fontFamily = font_medium,
                 fontWeight = FontWeight.Normal,
                 fontSize = fontSize.default,
-                color = DarkSilver
+                color = MaterialTheme.colorScheme.secondary
             )
         )
         Spacer(modifier = Modifier.height(size.extraExtraExtraSmall))
@@ -563,7 +558,7 @@ fun RecipeContent() {
                 fontFamily = font_medium,
                 fontWeight = FontWeight.Normal,
                 fontSize = fontSize.default,
-                color = DarkSilver
+                color = MaterialTheme.colorScheme.secondary
             )
         )
     }
@@ -582,7 +577,7 @@ fun IngredientsContent() {
             fontFamily = font_medium,
             fontWeight = FontWeight.Normal,
             fontSize = fontSize.default,
-            color = DarkSilver
+            color = MaterialTheme.colorScheme.secondary
         ),
         modifier = Modifier.padding(space.medium)
     )

@@ -22,7 +22,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
@@ -80,7 +79,7 @@ private fun HomeScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.background)
             .verticalScroll(state = scrollState),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -187,7 +186,7 @@ private fun HomeScreen() {
                         fontFamily = font_medium,
                         fontWeight = FontWeight.Normal,
                         fontSize = fontSize.default,
-                        color = Color.Gray
+                        color = MaterialTheme.colorScheme.secondary
                     )
                 )
             }
@@ -215,7 +214,7 @@ private fun HomeScreen() {
                             fontFamily = font_medium,
                             fontWeight = FontWeight.Normal,
                             fontSize = fontSize.medium,
-                            color = Color.Gray
+                            color = MaterialTheme.colorScheme.secondary
                         )
                     )
                 }
@@ -242,7 +241,7 @@ private fun HomeScreen() {
                 fontFamily = font_medium,
                 fontWeight = FontWeight.Normal,
                 fontSize = fontSize.small,
-                color = Color.Gray
+                color = MaterialTheme.colorScheme.secondary
             ),
             textAlign = TextAlign.Center
         )

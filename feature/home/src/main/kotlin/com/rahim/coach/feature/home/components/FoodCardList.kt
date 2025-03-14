@@ -40,8 +40,6 @@ import androidx.compose.ui.unit.dp
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
-import com.rahim.coach.library.designsystem.theme.AeroBlue
-import com.rahim.coach.library.designsystem.theme.OuterSpace
 import com.rahim.coach.library.designsystem.theme.font_bold
 import com.rahim.coach.library.designsystem.theme.font_medium
 
@@ -72,15 +70,13 @@ fun FoodCard(
             .height(120.dp),
         shape = RoundedCornerShape(size.extraSmall),
         elevation = CardDefaults.cardElevation(defaultElevation = HomeConstants.DEF_CARD_ELEVATION),
-        colors = CardDefaults.cardColors(containerColor = Color.White)
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)
     ) {
-        // We'll use a Box so we can draw custom corner accents behind the main content
         Box(
             modifier = Modifier
                 .fillMaxSize()
 
         ) {
-            // Draw top-left and bottom-right green corner strokes
             CornerAccent(
                 modifier = Modifier
                     .fillMaxSize()
@@ -89,13 +85,11 @@ fun FoodCard(
                 cornerStrokeWidth = space.hairline
             )
 
-            // The main Row: image on left, text in middle, plus button on the far right
             Row(
                 modifier = Modifier
                     .fillMaxSize(),
                 verticalAlignment = Alignment.Top
             ) {
-                // Food image
                 Image(
                     painter = painterResource(id = item.imageRes),
                     contentDescription = "Food image",
@@ -109,11 +103,10 @@ fun FoodCard(
 
                 Spacer(modifier = Modifier.width(size.extraExtraSmall))
 
-                // Text content (title, subtitle, time/calories row)
                 Column(
                     modifier = Modifier
                         .weight(1f)
-                        .padding(vertical = space.medium), // So the text columns fill the remaining space
+                        .padding(vertical = space.medium),
                     verticalArrangement = Arrangement.Top
                 ) {
                     Text(
@@ -122,7 +115,7 @@ fun FoodCard(
                             fontFamily = font_bold,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = fontSize.default,
-                            color = OuterSpace
+                            color = MaterialTheme.colorScheme.onSecondary
                         )
                     )
                     Spacer(modifier = Modifier.height(size.default))
@@ -132,13 +125,13 @@ fun FoodCard(
                             fontFamily = font_medium,
                             fontWeight = FontWeight.Normal,
                             fontSize = fontSize.extraExtraSmall,
-                            color = OuterSpace
+                            color = MaterialTheme.colorScheme.onSecondary
                         )
                     )
 
                     Spacer(modifier = Modifier.height(size.extraLarge))
 
-                    // Time + Calories in a row
+
                     Row {
                         Text(
                             text = item.time,
@@ -146,7 +139,7 @@ fun FoodCard(
                                 fontFamily = font_bold,
                                 fontWeight = FontWeight.SemiBold,
                                 fontSize = fontSize.default,
-                                color = OuterSpace
+                                color = MaterialTheme.colorScheme.onSecondary
                             )
                         )
                         Spacer(modifier = Modifier.width(size.extraSmall))
@@ -156,7 +149,7 @@ fun FoodCard(
                                 fontFamily = font_bold,
                                 fontWeight = FontWeight.SemiBold,
                                 fontSize = fontSize.default,
-                                color = OuterSpace
+                                color = MaterialTheme.colorScheme.onSecondary
                             )
                         )
                     }
@@ -167,13 +160,13 @@ fun FoodCard(
 
             }
 
-            // Heart icon in top-right corner
+
             Icon(
                 painter = painterResource(
                     id = com.rahim.coach.library.designsystem.R.drawable.ic_heart
                 ),
                 contentDescription = "Favorite",
-                tint = if (item.isFavorite) Color.Red else Color.Gray,
+                tint = if (item.isFavorite) MaterialTheme.colorScheme.tertiaryContainer else MaterialTheme.colorScheme.secondary,
                 modifier = Modifier
                     .align(Alignment.TopEnd)
                     .padding(space.small)
@@ -183,13 +176,12 @@ fun FoodCard(
                     }
             )
 
-            // The round "plus" button
             Box(
                 modifier = Modifier
                     .padding(space.small)
                     .size(size.extraExtraLarge)
                     .clip(RoundedCornerShape(size.extraExtraSmall))
-                    .background(AeroBlue)
+                    .background(MaterialTheme.colorScheme.tertiary)
                     .clickable { onAddClick() }
                     .align(Alignment.BottomEnd),
                 contentAlignment = Alignment.Center
